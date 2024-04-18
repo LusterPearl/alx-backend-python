@@ -3,18 +3,18 @@
 Module for calculating the length of elements in a list
 """
 
-from typing import Iterable, Tuple
+from typing import Iterable, Sequence, List, Tuple
 
 
-def element_length(lst: Iterable) -> Iterable:
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
     """
     Returns a list of tuples containing each element of lst and its length.
 
     Args:
-        lst (Iterable): An iterable object.
+        lst (Iterable[Sequence]): An iterable object containing sequences.
 
     Returns:
-        Iterable: A list of tuples where the first element is an element of lst
-        and the second element is the length of the element.
+        List[Tuple[Sequence, int]]: A list of tuples where the first element
+        and the second element is the length of the sequence.
     """
     return [(i, len(i)) for i in lst]

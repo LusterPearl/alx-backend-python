@@ -5,6 +5,7 @@ Module for zooming arrays
 
 from typing import Tuple, List, Any
 
+
 def zoom_array(lst: Tuple[Any], factor: int = 2) -> Tuple[Any]:
     """Zooms an array by repeating each element 'factor' times"""
     zoomed_in: List[Any] = [

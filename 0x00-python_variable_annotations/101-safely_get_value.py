@@ -8,6 +8,7 @@ from typing import Mapping, Any, TypeVar, Union
 """Define a type variable ~T to represent the type"""
 ~T = TypeVar('~T')
 
+
 def safely_get_value(dct: Mapping[Any, ~T], key: Any, default: Union[~T, None] = None) -> Union[~T, Any]:
     """
     Returns the value associated with the key in the dictionary if it exists

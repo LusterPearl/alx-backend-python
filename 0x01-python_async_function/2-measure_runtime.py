@@ -7,8 +7,6 @@ import asyncio
 import time
 from typing import Callable
 
-from 1-concurrent_coroutines import wait_n
-
 
 async def wait_random(max_delay: int) -> float:
     """waiting period for random"""

@@ -8,6 +8,9 @@ import random
 from typing import Any
 
 
+from 0-basic_async_syntax import wait_random
+
+
 async def wait_random(max_delay: int) -> float:
     """
     Asynchronous coroutine that waits for a random delay between 0

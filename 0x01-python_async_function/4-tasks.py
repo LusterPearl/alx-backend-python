@@ -7,6 +7,7 @@ import asyncio
 from random import uniform
 from typing import List
 
+
 async def wait_random(max_delay: int) -> float:
     """
     Asynchronous coroutine that waits for a random delay between 0
@@ -22,6 +23,7 @@ async def wait_random(max_delay: int) -> float:
     await asyncio.sleep(delay)
     return delay
 
+
 async def task_wait_random(max_delay: int) -> asyncio.Task:
     """
     Create an asyncio.Task object that wraps the wait_random coroutine.
@@ -33,6 +35,7 @@ async def task_wait_random(max_delay: int) -> asyncio.Task:
         asyncio.Task: An asyncio.Task object.
     """
     return asyncio.create_task(wait_random(max_delay))
+
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """

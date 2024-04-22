@@ -7,7 +7,6 @@ import asyncio
 import random
 from typing import Any
 
-
 from 0-basic_async_syntax import wait_random
 
 

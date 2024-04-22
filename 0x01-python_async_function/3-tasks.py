@@ -6,8 +6,6 @@ Module for creating an asyncio.Task object.
 import asyncio
 from typing import Coroutine
 
-from 0-basic_async_syntax import wait_random
-
 
 def task_wait_random(max_delay: int) -> asyncio.Task:
     """ Create an asyncio.Task object that wraps the wait_random coroutine.

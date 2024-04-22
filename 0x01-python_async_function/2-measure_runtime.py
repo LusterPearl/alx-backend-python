@@ -12,7 +12,8 @@ from 1-concurrent_coroutines import wait_n
 
 def measure_time(n: int, max_delay: int) -> float:
     """
-     Measure the total execution time of wait_n(n, max_delay) and return total_time / n.
+     Measure the total execution time of wait_n(n, max_delay)
+     and return total_time / n.
 
     Args:
         n (int): The number of times to spawn wait_random.

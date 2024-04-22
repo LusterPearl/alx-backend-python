@@ -11,7 +11,8 @@ from random import uniform
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
     """
-    synchronous coroutine that spawns wait_random n times with the specified max_delay.
+    synchronous coroutine that spawns wait_random n times
+    with the specified max_delay.
 
     Args:
         n (int): The number of times to spawn wait_random.
@@ -26,7 +27,8 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
 
 
 async def wait_random(max_delay: int) -> float:
-    """Asynchronous coroutine that waits for a random delay between 0 and max_delay seconds.
+    """Asynchronous coroutine that waits for a random delay
+    between 0 and max_delay seconds.
 
     Args:
         max_delay (int): The maximum delay in seconds.

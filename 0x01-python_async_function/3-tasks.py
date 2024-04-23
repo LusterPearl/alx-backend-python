@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Tasks Module
+Tasks Module that waits for a random amount of time
 """
 
 import asyncio

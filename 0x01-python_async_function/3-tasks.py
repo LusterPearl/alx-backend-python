@@ -3,12 +3,9 @@
 Module for creating an asyncio.Task object.
 """
 
-import asyncio
-import random
 from typing import Any
-
-from 0-basic_async_syntax import wait_random
-
+import asyncio
+from random import uniform
 
 async def wait_random(max_delay: int) -> float:
     """
@@ -21,13 +18,13 @@ async def wait_random(max_delay: int) -> float:
     Returns:
         float: The random delay.
     """
-    delay = random.uniform(0, max_delay)
+    delay = uniform(0, max_delay)
     await asyncio.sleep(delay)
     return delay
 
-
 def task_wait_random(max_delay: int) -> Any:
-    """ Create an asyncio.Task object that wraps the wait_random coroutine.
+    """
+    Create an asyncio.Task object that wraps the wait_random coroutine.
 
     Args:
         max_delay (int): The maximum delay in seconds for wait_random.

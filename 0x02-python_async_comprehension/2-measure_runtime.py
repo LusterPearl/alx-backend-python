@@ -6,6 +6,7 @@ Measure Runtime Module
 import asyncio
 from time import perf_counter
 from typing import List
+from asyncio import gather
 
 async_comprehension = __import__('1-async_comprehension').async_comprehension
 

@@ -6,6 +6,7 @@ from unittest.mock import patch
 from client import GithubOrgClient
 from parameterized import parameterized
 
+
 class TestGithubOrgClient(unittest.TestCase):
     """Test case for GithubOrgClient class."""
 
@@ -30,6 +31,7 @@ class TestGithubOrgClient(unittest.TestCase):
         )
 
         self.assertEqual(result, {"name": org_name})
+
 
 if __name__ == "__main__":
     unittest.main()

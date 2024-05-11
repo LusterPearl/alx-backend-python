@@ -59,6 +59,7 @@ class TestMemoize(unittest.TestCase):
     def test_memoize(self):
         """Test memoize decorator."""
         class TestClass:
+            """class test memoize decorator"""
             def a_method(self):
                 return 42
 
@@ -90,9 +91,15 @@ class TestGithubOrgClient(unittest.TestCase):
         mock_get_json.return_value = {"name": org_name}
 
         github_client = GithubOrgClient(org_name)
-        result = github_client.org()
 
-        mock_get_json.assert_called_once_with(f"https://api.github.com/orgs/{org_name}")
+        result = github_client.org()
+        
+        """Assert that get_json was called once with the correct argument"""
+        mock_get_json.assert_called_once_with(
+            f"https://api.github.com/orgs/{org_name}"
+        )
+ 
+        
         self.assertEqual(result, {"name": org_name})
 
 

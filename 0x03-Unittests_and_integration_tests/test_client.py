@@ -5,6 +5,8 @@ import unittest
 from unittest.mock import patch
 from client import GithubOrgClient
 from parameterized import parameterized
+from fixtures import org_payload, repos_payload, expected_repos, apache2_repos
+
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -53,6 +55,39 @@ class TestGithubOrgClient(unittest.TestCase):
         github_client = GithubOrgClient("org_name")
         result = github_client.has_license(repo, license_key)
         self.assertEqual(result, expected)
+
+@parameterized_class(("org_payload", "repos_payload", "expected_repos", "apache2_repos"), [
+    (org_payload, repos_payload, expected_repos, apache2_repos),
+])
+class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """Integration test case for GithubOrgClient class."""
+
+    @classmethod
+    def setUpClass(cls):
+        """Set up the test class with mock responses."""
+        cls.get_patcher = patch('client.requests.get')
+        cls.mock_get = cls.get_patcher.start()
+
+    @classmethod
+    def tearDownClass(cls):
+        """Tear down the test class."""
+        cls.get_patcher.stop()
+
+    def setUp(self):
+        """Set up the test."""
+        self.github_client = GithubOrgClient("test_org")
+
+    def test_public_repos(self):
+        """Test public_repos method of GithubOrgClient class."""
+        self.mock_get.side_effect = [org_payload, repos_payload]
+        result = self.github_client.public_repos()
+        self.assertEqual(result, self.expected_repos)
+
+    def test_apache2_repos(self):
+        """Test apache2_repos method of GithubOrgClient class."""
+        self.mock_get.side_effect = [org_payload, repos_payload]
+        result = self.github_client.apache2_repos()
+        self.assertEqual(result, self.apache2_repos)
 
 
 if __name__ == "__main__":

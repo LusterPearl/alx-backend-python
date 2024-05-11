@@ -8,7 +8,6 @@ from parameterized import parameterized
 from fixtures import org_payload, repos_payload, expected_repos, apache2_repos
 
 
-
 class TestGithubOrgClient(unittest.TestCase):
     """Test case for GithubOrgClient class."""
 
@@ -55,6 +54,7 @@ class TestGithubOrgClient(unittest.TestCase):
         github_client = GithubOrgClient("org_name")
         result = github_client.has_license(repo, license_key)
         self.assertEqual(result, expected)
+
 
 @parameterized_class(("org_payload", "repos_payload", "expected_repos", "apache2_repos"), [
     (org_payload, repos_payload, expected_repos, apache2_repos),

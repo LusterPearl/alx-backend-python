@@ -81,6 +81,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
     def test_public_repos(self):
         """Test public_repos method of GithubOrgClient class."""
         self.mock_get.side_effect = [org_payload, repos_payload]
+        github_client = GithubOrgClient("org_name")
         result = self.github_client.public_repos()
         self.assertEqual(result, self.expected_repos)
 
@@ -93,7 +94,8 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
     def test_public_repos_with_license(self):
         """Test public_repos method with license argument."""
         self.mock_get.side_effect = [self.org_payload, self.repos_payload]
-        result = self.github_client.public_repos(license="apache-2.0")
+        github_client = GithubOrgClient("org_name")
+        result = github_client.public_repos(license="apache-2.0")
         self.assertEqual(result, self.apache2_repos)
 
 

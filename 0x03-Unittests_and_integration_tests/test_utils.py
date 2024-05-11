@@ -93,13 +93,11 @@ class TestGithubOrgClient(unittest.TestCase):
         github_client = GithubOrgClient(org_name)
 
         result = github_client.org()
-        
+
         """Assert that get_json was called once with the correct argument"""
         mock_get_json.assert_called_once_with(
             f"https://api.github.com/orgs/{org_name}"
-        )
- 
-        
+            )
         self.assertEqual(result, {"name": org_name})
 
 

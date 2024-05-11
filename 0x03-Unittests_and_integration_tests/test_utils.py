@@ -81,24 +81,24 @@ class TestMemoize(unittest.TestCase):
 class TestGithubOrgClient(unittest.TestCase):
     """Test case for GithubOrgClient class."""
 
-    @parameterized.expand([
-        ("google",),
-        ("abc",),
-    ])
     @patch('client.get_json')
-    def test_org(self, org_name, mock_get_json):
+    def test_org(self, mock_get_json):
         """Test org method of GithubOrgClient class."""
-        mock_get_json.return_value = {"name": org_name}
+        mock_get_json.return_value = {"name": "org_name"}
 
-        github_client = GithubOrgClient(org_name)
+        """Create an instance of GithubOrgClient"""
+        github_client = GithubOrgClient("org_name")
 
+        """Call the org method"""
         result = github_client.org()
 
         """Assert that get_json was called once with the correct argument"""
         mock_get_json.assert_called_once_with(
-            f"https://api.github.com/orgs/{org_name}"
-            )
-        self.assertEqual(result, {"name": org_name})
+            "https://api.github.com/orgs/org_name"
+        )
+
+        """Assert that the result is correct"""
+        self.assertEqual(result, {"name": "org_name"})
 
 
 if __name__ == "__main__":

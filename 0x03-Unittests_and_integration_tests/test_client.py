@@ -8,6 +8,7 @@ from parameterized import parameterized_class
 from parameterized import parameterized
 from fixtures import TEST_PAYLOAD
 
+
 class TestGithubOrgClient(unittest.TestCase):
     """Test case for GithubOrgClient class."""
 

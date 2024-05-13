@@ -6,6 +6,7 @@ from parameterized import parameterized
 from unittest.mock import patch
 from client import GithubOrgClient
 
+
 class TestGithubOrgClient(unittest.TestCase):
     """Test cases for the GithubOrgClient class."""
 
@@ -19,6 +20,7 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(client.org, f'https://api.github.com/orgs/{org_name}')
         mock_url.assert_called_once_with()
         mock_get_json.assert_not_called()
+
 
 if __name__ == '__main__':
     unittest.main()

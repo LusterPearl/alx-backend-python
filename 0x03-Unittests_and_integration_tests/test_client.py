@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 """Test cases for the GithubOrgClient class."""
 
 import unittest

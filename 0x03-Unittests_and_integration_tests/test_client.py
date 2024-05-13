@@ -81,19 +81,19 @@ class TestGithubOrgClient(unittest.TestCase):
         """Test public_repos method of GithubOrgClient class."""
         self.mock_get.side_effect = [org_payload, repos_payload]
         result = self.github_client.public_repos()
-        self.assertEqual(result, self.expected_repos)
+        self.assertEqual(result, expected_repos)
 
     def test_apache2_repos(self):
         """Test apache2_repos method of GithubOrgClient class."""
         self.mock_get.side_effect = [org_payload, repos_payload]
         result = self.github_client.apache2_repos()
-        self.assertEqual(result, self.apache2_repos)
+        self.assertEqual(result, apache2_repos)
 
     def test_public_repos_with_license(self):
         """Test public_repos method with license argument."""
         self.mock_get.side_effect = [self.org_payload, self.repos_payload]
         result = self.github_client.public_repos(license="apache-2.0")
-        self.assertEqual(result, self.apache2_repos)
+        self.assertEqual(result, apache2_repos)
 
 
 if __name__ == "__main__":

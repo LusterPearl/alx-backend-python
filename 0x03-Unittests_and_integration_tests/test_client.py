@@ -55,11 +55,10 @@ class TestGithubOrgClient(unittest.TestCase):
         result = github_client.has_license(repo, license_key)
         self.assertEqual(result, expected)
 
-
-@parameterized_class(("org_payload", "repos_payload", "expected_repos",
+    @parameterized_class(("org_payload", "repos_payload", "expected_repos",
                       "apache2_repos"),
                      [(org_payload, repos_payload, expected_repos,
-                      apache2_repos)])
+                       apache2_repos)])
 class TestIntegrationGithubOrgClient(unittest.TestCase):
     """Integration test case for GithubOrgClient class."""
 
